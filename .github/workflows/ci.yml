@@ -59,6 +59,11 @@ jobs:
         run: |
           python -m pip install pytest
 
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # Ensure Flask is listed in requirements.txt
+
       - name: Run tests with pytest
         run: |
           pytest --maxfail=5 --disable-warnings
