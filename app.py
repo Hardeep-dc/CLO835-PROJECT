@@ -73,6 +73,7 @@ def download_image_from_s3(bucket, key, local_filename):
 def home():
     download_image_from_s3(S3_BUCKET, S3_KEY, 'static/background.png')
     logger.info(f"Background image URL: {BACKGROUND_IMAGE_URL}")
+    name = os.environ.get('YOUR_NAME', 'Guest')
     return render_template('addemp.html', color=f"url('/static/background.png')")
 
 @app.route("/about", methods=['GET','POST'])
