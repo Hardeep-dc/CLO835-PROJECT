@@ -5,7 +5,13 @@ import os
 
 class FlaskAppTests(unittest.TestCase):
 
-    def setUp(self):
+     @patch('app.db_conn')
+    def setUp(self, mock_db):
+        # Mock the database connection
+        self.mock_db = mock_db
+        self.mock_cursor = MagicMock()
+        self.mock_db.cursor.return_value = self.mock_cursor
+
         # Set up the test client
         self.app = app.test_client()
         self.app.testing = True
