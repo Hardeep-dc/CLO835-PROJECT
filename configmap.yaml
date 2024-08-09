@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: flask-app-config
+  namespace: final
+data:
+  BACKGROUND_IMAGE_URL: "https://clo835project.s3.amazonaws.com/3.png"
+  S3_BUCKET: "clo835project"
+  S3_KEY: "3.png"
+  YOUR_NAME: "Group 2"
