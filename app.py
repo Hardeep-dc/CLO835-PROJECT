@@ -100,7 +100,7 @@ def AddEmp():
         cursor.close()
 
     logger.info("Employee added to the database")
-    return render_template('addempoutput.html', name=emp_name, color=f"url('/static/background.png')")
+    return render_template('addempoutput.html', name=emp_name, color=f"url('/static/background.png')", name=YOUR_NAME )
 
 @app.route("/getemp", methods=['GET', 'POST'])
 def GetEmp():
