@@ -29,3 +29,8 @@ spec:
             secretKeyRef:
               name: mysql-secret
               key: DBHOST
+        - name: YOUR_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: flask-app-config
+              key: YOUR_NAME
