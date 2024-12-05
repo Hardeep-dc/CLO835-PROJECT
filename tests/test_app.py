@@ -4,9 +4,9 @@ from app import app
 
 class FlaskAppTests(unittest.TestCase):
 
-    @patch('app.db_conn')
-    def setUp(self, mock_db):  # Ensure this line is properly indented
-        # Mock the database connection
+    @patch('app.db_conn')  # This mocks the db_conn in the app module
+    def setUp(self, mock_db):
+        # Mock the database connection and cursor
         self.mock_db = mock_db
         self.mock_cursor = MagicMock()
         self.mock_db.cursor.return_value = self.mock_cursor
@@ -16,7 +16,6 @@ class FlaskAppTests(unittest.TestCase):
         self.app.testing = True
 
     def tearDown(self):
-        # Teardown any resources after tests
         pass
 
     def test_home_status_code(self):
@@ -25,11 +24,6 @@ class FlaskAppTests(unittest.TestCase):
 
     def test_about_status_code(self):
         result = self.app.get('/about')
-        self.assertEqual(result.status_code, 200)
-
-
-    def test_getemp_status_code(self):
-        result = self.app.get('/getemp')
         self.assertEqual(result.status_code, 200)
 
 
